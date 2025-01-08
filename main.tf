@@ -1,6 +1,12 @@
 # Copyright (c) HashiCorp, Inc.
 # SPDX-License-Identifier: MPL-2.0
 
+provider "aws" {
+  region = "eu-west-1"
+}
+
+
+
 terraform {
   required_providers {
     aws = {
@@ -15,17 +21,14 @@ terraform {
   required_version = ">= 1.1.0"
 
   cloud {
-    organization = "REPLACE_ME"
+    organization = "balericaclass6"
 
     workspaces {
-      name = "gh-actions-demo"
+      name = "learn-terraform-github-actions"
     }
   }
 }
 
-provider "aws" {
-  region = "us-west-2"
-}
 
 resource "random_pet" "sg" {}
 
@@ -34,7 +37,7 @@ data "aws_ami" "ubuntu" {
 
   filter {
     name   = "name"
-    values = ["ubuntu/images/hvm-ssd/ubuntu-focal-20.04-amd64-server-*"]
+    values = ["ubuntu/images/hvm-ssd/ubuntu-focal-24.04-amd64-server-*"]
   }
 
   filter {
@@ -42,7 +45,7 @@ data "aws_ami" "ubuntu" {
     values = ["hvm"]
   }
 
-  owners = ["099720109477"] # Canonical
+  owners = ["890742594807"] # Canonical
 }
 
 resource "aws_instance" "web" {
