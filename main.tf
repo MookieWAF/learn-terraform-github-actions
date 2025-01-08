@@ -32,21 +32,20 @@ terraform {
 
 resource "random_pet" "sg" {}
 
+
 data "aws_ami" "ubuntu" {
   most_recent = true
+  owners      = ["amazon"]
 
   filter {
     name   = "name"
-    values = ["ubuntu/images/hvm-ssd/ubuntu-focal-20.04-amd64-server-*"]
+    values = ["al2023-ami-2023.*-x86_64"]
   }
-
-  filter {
-    name   = "virtualization-type"
-    values = ["hvm"]
-  }
-
-  owners = ["890742594807"] # Canonical
+ owners = ["890742594807"] # Canonical
 }
+
+
+
 
 resource "aws_instance" "web" {
   ami                    = data.aws_ami.ubuntu.id
