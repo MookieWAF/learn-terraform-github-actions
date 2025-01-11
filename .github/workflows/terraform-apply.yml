@@ -6,8 +6,13 @@ on:
       - main
 
 env:
+<<<<<<< HEAD
   TF_CLOUD_ORGANIZATION: "CallahanCloud"
   TF_API_TOKEN: "${{ secrets.TF_API_TOKEN }}"
+=======
+  TF_CLOUD_ORGANIZATION: "FlemingFriday"
+  TF_API_TOKEN: "${{ secrets.TF_API_TOKEN }}"
+>>>>>>> 4ac6ede2c5587d2993a538d960f4ae6fd01c1112
   TF_WORKSPACE: "learn-terraform-github-actions"
   CONFIG_DIRECTORY: "./"
 
