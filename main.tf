@@ -298,7 +298,7 @@ resource "aws_launch_template" "app1_LT" {
   image_id      = "ami-05576a079321f21f8"
   instance_type = "t2.micro"
 
-#Rob suggested commenting out Key Pair on 1/11/25
+  #Rob suggested commenting out Key Pair on 1/11/25
   /*key_name = "MyLinuxBox"*/
 
   vpc_security_group_ids = [aws_security_group.app1-sg01-servers.id]
