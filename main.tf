@@ -5,16 +5,16 @@
 
 
 provider "aws" {
-  region = "eu-west-1"
+  region = "ap-northeast-2"
 }
 
 terraform {
 
   cloud {
-    organization = "FlemingFriday"
+    organization = "Pipeline-Saturday"
 
     workspaces {
-      name = "learn-terraform-github-actions"
+      name = "learn-terraform-github-actions2"
     }
   }
 
@@ -87,28 +87,28 @@ resource "aws_security_group" "app1-sg01-servers" {
 
 #These are   for  public
 
-resource "aws_subnet" "public-eu-west-1a" {
+resource "aws_subnet" "public-ap-northeast-2a" {
   vpc_id                  = aws_vpc.app1.id
   cidr_block              = "10.32.1.0/24"
-  availability_zone       = "eu-west-1a"
+  availability_zone       = "ap-northeast-2a"
   map_public_ip_on_launch = true
 
   tags = {
-    Name    = "public-eu-west-1a"
+    Name    = "public-ap-northeast-2a"
     Service = "application1"
     Owner   = "Luke"
     Planet  = "Musafar"
   }
 }
 
-resource "aws_subnet" "public-eu-west-1b" {
+resource "aws_subnet" "public-ap-northeast-2b" {
   vpc_id                  = aws_vpc.app1.id
   cidr_block              = "10.32.2.0/24"
-  availability_zone       = "eu-west-1b"
+  availability_zone       = "ap-northeast-2b"
   map_public_ip_on_launch = true
 
   tags = {
-    Name    = "public-eu-west-1b"
+    Name    = "public-ap-northeast-2b"
     Service = "application1"
     Owner   = "Luke"
     Planet  = "Musafar"
@@ -116,14 +116,14 @@ resource "aws_subnet" "public-eu-west-1b" {
 }
 
 
-resource "aws_subnet" "public-eu-west-1c" {
+resource "aws_subnet" "public-ap-northeast-2c" {
   vpc_id                  = aws_vpc.app1.id
   cidr_block              = "10.32.3.0/24"
-  availability_zone       = "eu-west-1c"
+  availability_zone       = "ap-northeast-2c"
   map_public_ip_on_launch = true
 
   tags = {
-    Name    = "public-eu-west-1c"
+    Name    = "public-ap-northeast-2c"
     Service = "application1"
     Owner   = "Luke"
     Planet  = "Musafar"
@@ -131,26 +131,26 @@ resource "aws_subnet" "public-eu-west-1c" {
 }
 
 #these are for private
-resource "aws_subnet" "private-eu-west-1a" {
+resource "aws_subnet" "private-ap-northeast-2a" {
   vpc_id            = aws_vpc.app1.id
   cidr_block        = "10.32.11.0/24"
-  availability_zone = "eu-west-1a"
+  availability_zone = "ap-northeast-2a"
 
   tags = {
-    Name    = "private-eu-west-1a"
+    Name    = "private-ap-northeast-2a"
     Service = "application1"
     Owner   = "Luke"
     Planet  = "Musafar"
   }
 }
 
-resource "aws_subnet" "private-eu-west-1b" {
+resource "aws_subnet" "private-ap-northeast-2b" {
   vpc_id            = aws_vpc.app1.id
   cidr_block        = "10.32.12.0/24"
-  availability_zone = "eu-west-1b"
+  availability_zone = "ap-northeast-2b"
 
   tags = {
-    Name    = "private-eu-west-1b"
+    Name    = "private-ap-northeast-2b"
     Service = "application1"
     Owner   = "Luke"
     Planet  = "Musafar"
@@ -158,13 +158,13 @@ resource "aws_subnet" "private-eu-west-1b" {
 }
 
 
-resource "aws_subnet" "private-eu-west-1c" {
+resource "aws_subnet" "private-ap-northeast-2c" {
   vpc_id            = aws_vpc.app1.id
   cidr_block        = "10.32.13.0/24"
-  availability_zone = "eu-west-1c"
+  availability_zone = "ap-northeast-2c"
 
   tags = {
-    Name    = "private-eu-west-1c"
+    Name    = "private-ap-northeast-2c"
     Service = "application1"
     Owner   = "Luke"
     Planet  = "Musafar"
@@ -193,7 +193,7 @@ resource "aws_eip" "nat" {
 
 resource "aws_nat_gateway" "nat" {
   allocation_id = aws_eip.nat.id
-  subnet_id     = aws_subnet.public-eu-west-1a.id
+  subnet_id     = aws_subnet.public-ap-northeast-2a.id
 
   tags = {
     Name = "nat"
@@ -254,35 +254,35 @@ resource "aws_route_table" "public" {
   }
 }
 
-resource "aws_route_table_association" "private-eu-west-1a" {
-  subnet_id      = aws_subnet.private-eu-west-1a.id
+resource "aws_route_table_association" "private-ap-northeast-2a" {
+  subnet_id      = aws_subnet.private-ap-northeast-2a.id
   route_table_id = aws_route_table.private.id
 }
 
-resource "aws_route_table_association" "private-eu-west-1b" {
-  subnet_id      = aws_subnet.private-eu-west-1b.id
+resource "aws_route_table_association" "private-ap-northeast-2b" {
+  subnet_id      = aws_subnet.private-ap-northeast-2b.id
   route_table_id = aws_route_table.private.id
 }
-resource "aws_route_table_association" "private-eu-west-1c" {
-  subnet_id      = aws_subnet.private-eu-west-1c.id
+resource "aws_route_table_association" "private-ap-northeast-2c" {
+  subnet_id      = aws_subnet.private-ap-northeast-2c.id
   route_table_id = aws_route_table.private.id
 }
 
 
 #public
 
-resource "aws_route_table_association" "public-eu-west-1a" {
-  subnet_id      = aws_subnet.public-eu-west-1a.id
+resource "aws_route_table_association" "public-ap-northeast-2a" {
+  subnet_id      = aws_subnet.public-ap-northeast-2a.id
   route_table_id = aws_route_table.public.id
 }
 
-resource "aws_route_table_association" "public-eu-west-1b" {
-  subnet_id      = aws_subnet.public-eu-west-1b.id
+resource "aws_route_table_association" "public-ap-northeast-2b" {
+  subnet_id      = aws_subnet.public-ap-northeast-2b.id
   route_table_id = aws_route_table.public.id
 }
 
-resource "aws_route_table_association" "public-eu-west-1c" {
-  subnet_id      = aws_subnet.public-eu-west-1c.id
+resource "aws_route_table_association" "public-ap-northeast-2c" {
+  subnet_id      = aws_subnet.public-ap-northeast-2c.id
   route_table_id = aws_route_table.public.id
 }
 
@@ -295,7 +295,7 @@ resource "aws_route_table_association" "public-eu-west-1c" {
 
 resource "aws_launch_template" "app1_LT" {
   name_prefix   = "app1_LT"
-  image_id      = "ami-06ed60ed1369448bd"
+  image_id      = "ami-0c7eb81e6fe66fd84"
   instance_type = "t2.micro"
 
   key_name = "MyLinuxBox"
