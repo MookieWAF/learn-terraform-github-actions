@@ -6,7 +6,7 @@ on:
       - main
 
 env:
-  TF_CLOUD_ORGANIZATION: "balericaclass6"
+  TF_CLOUD_ORGANIZATION: "CallahanCloud"
   TF_API_TOKEN: "${{ secrets.TF_API_TOKEN }}"
   TF_WORKSPACE: "learn-terraform-github-actions"
   CONFIG_DIRECTORY: "./"
