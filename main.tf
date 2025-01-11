@@ -11,10 +11,10 @@ provider "aws" {
 terraform {
 
   cloud {
-    organization = "FlemingFriday"
+    organization = "ECSOrg"
 
     workspaces {
-      name = "learn-terraform-github-actions"
+      name = "ECS-Workflow001"
     }
   }
 
