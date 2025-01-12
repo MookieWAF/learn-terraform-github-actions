@@ -3,14 +3,14 @@ name: "Terraform Plan"
 on:
   pull_request:
 env:
-  TF_CLOUD_ORGANIZATION: "FlemingFriday"
-  TF_API_TOKEN: "${{ secrets.TF_API_TOKEN2 }}"
-  TF_WORKSPACE: "learn-terraform-github-actions"
+  TF_CLOUD_ORGANIZATION: "studyforschool"
+  TF_API_TOKEN: "${{ secrets.TF_API_TOKEN }}"
+  TF_WORKSPACE: "Roboclownedme2"
   CONFIG_DIRECTORY: "./"
 jobs:
   terraform:
     - name: "Terraform"
-      if: github.repository != 'hashicorp-education/learn-terraform-github-actions'
+      if: github.repository != 'hashicorp-education/Roboclownedme2'
     - name: "Terraform Plan"
       runs-on: ubuntu-latest
       permissions:
