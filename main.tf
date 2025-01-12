@@ -5,13 +5,13 @@
 
 
 provider "aws" {
-  region = "eu-west-1"
+  region = "us-east-1"
 }
 
 terraform {
 
   cloud {
-    organization = "FlemingFriday"
+    organization = "CitengamSolutions"
 
     workspaces {
       name = "learn-terraform-github-actions"
@@ -33,8 +33,8 @@ resource "aws_vpc" "app1" {
   tags = {
     Name    = "app1"
     Service = "application1"
-    Owner   = "Chewbacca"
-    Planet  = "Mustafar"
+    Owner   = "Magnetic"
+    Planet  = "Earf"
   }
 }
 
@@ -78,8 +78,8 @@ resource "aws_security_group" "app1-sg01-servers" {
   tags = {
     Name    = "app1-sg01-servers"
     Service = "application1"
-    Owner   = "Luke"
-    Planet  = "Musafar"
+    Owner   = "Prince"
+    Planet  = "The Earf"
   }
 
 }
@@ -87,87 +87,87 @@ resource "aws_security_group" "app1-sg01-servers" {
 
 #These are   for  public
 
-resource "aws_subnet" "public-eu-west-1a" {
+resource "aws_subnet" "public-us-east-1a" {
   vpc_id                  = aws_vpc.app1.id
   cidr_block              = "10.32.1.0/24"
-  availability_zone       = "eu-west-1a"
+  availability_zone       = "us-east-1a"
   map_public_ip_on_launch = true
 
   tags = {
-    Name    = "public-eu-west-1a"
+    Name    = "public-us-east-1a"
     Service = "application1"
-    Owner   = "Luke"
-    Planet  = "Musafar"
+    Owner   = "Prince"
+    Planet  = "The Earf"
   }
 }
 
-resource "aws_subnet" "public-eu-west-1b" {
+resource "aws_subnet" "public-us-east-1b" {
   vpc_id                  = aws_vpc.app1.id
   cidr_block              = "10.32.2.0/24"
-  availability_zone       = "eu-west-1b"
+  availability_zone       = "us-east-1b"
   map_public_ip_on_launch = true
 
   tags = {
-    Name    = "public-eu-west-1b"
+    Name    = "public-us-east-1b"
     Service = "application1"
-    Owner   = "Luke"
-    Planet  = "Musafar"
+    Owner   = "Prince"
+    Planet  = "The Earf"
   }
 }
 
 
-resource "aws_subnet" "public-eu-west-1c" {
+resource "aws_subnet" "public-us-east-1c" {
   vpc_id                  = aws_vpc.app1.id
   cidr_block              = "10.32.3.0/24"
-  availability_zone       = "eu-west-1c"
+  availability_zone       = "us-east-1c"
   map_public_ip_on_launch = true
 
   tags = {
-    Name    = "public-eu-west-1c"
+    Name    = "public-us-east-1c"
     Service = "application1"
-    Owner   = "Luke"
-    Planet  = "Musafar"
+    Owner   = "Prince"
+    Planet  = "The Earf"
   }
 }
 
 #these are for private
-resource "aws_subnet" "private-eu-west-1a" {
+resource "aws_subnet" "private-us-east-1a" {
   vpc_id            = aws_vpc.app1.id
   cidr_block        = "10.32.11.0/24"
-  availability_zone = "eu-west-1a"
+  availability_zone = "us-east-1a"
 
   tags = {
-    Name    = "private-eu-west-1a"
+    Name    = "private-us-east-1a"
     Service = "application1"
-    Owner   = "Luke"
-    Planet  = "Musafar"
+    Owner   = "Prince"
+    Planet  = "The Earf"
   }
 }
 
-resource "aws_subnet" "private-eu-west-1b" {
+resource "aws_subnet" "private-us-east-1b" {
   vpc_id            = aws_vpc.app1.id
   cidr_block        = "10.32.12.0/24"
-  availability_zone = "eu-west-1b"
+  availability_zone = "us-east-1b"
 
   tags = {
-    Name    = "private-eu-west-1b"
+    Name    = "private-us-east-1b"
     Service = "application1"
-    Owner   = "Luke"
-    Planet  = "Musafar"
+    Owner   = "Prince"
+    Planet  = "The Earf"
   }
 }
 
 
-resource "aws_subnet" "private-eu-west-1c" {
+resource "aws_subnet" "private-us-east-1c" {
   vpc_id            = aws_vpc.app1.id
   cidr_block        = "10.32.13.0/24"
-  availability_zone = "eu-west-1c"
+  availability_zone = "us-east-1c"
 
   tags = {
-    Name    = "private-eu-west-1c"
+    Name    = "private-us-east-1c"
     Service = "application1"
-    Owner   = "Luke"
-    Planet  = "Musafar"
+    Owner   = "Prince"
+    Planet  = "The Earf"
   }
 }
 
@@ -177,8 +177,8 @@ resource "aws_internet_gateway" "igw" {
   tags = {
     Name    = "app1_IG"
     Service = "application1"
-    Owner   = "Luke"
-    Planet  = "Musafar"
+    Owner   = "Prince"
+    Planet  = "The Earf"
   }
 }
 
@@ -193,7 +193,7 @@ resource "aws_eip" "nat" {
 
 resource "aws_nat_gateway" "nat" {
   allocation_id = aws_eip.nat.id
-  subnet_id     = aws_subnet.public-eu-west-1a.id
+  subnet_id     = aws_subnet.public-us-east-1a.id
 
   tags = {
     Name = "nat"
@@ -254,35 +254,35 @@ resource "aws_route_table" "public" {
   }
 }
 
-resource "aws_route_table_association" "private-eu-west-1a" {
-  subnet_id      = aws_subnet.private-eu-west-1a.id
+resource "aws_route_table_association" "private-us-east-1a" {
+  subnet_id      = aws_subnet.private-us-east-1a.id
   route_table_id = aws_route_table.private.id
 }
 
-resource "aws_route_table_association" "private-eu-west-1b" {
-  subnet_id      = aws_subnet.private-eu-west-1b.id
+resource "aws_route_table_association" "private-us-east-1b" {
+  subnet_id      = aws_subnet.private-us-east-1b.id
   route_table_id = aws_route_table.private.id
 }
-resource "aws_route_table_association" "private-eu-west-1c" {
-  subnet_id      = aws_subnet.private-eu-west-1c.id
+resource "aws_route_table_association" "private-us-east-1c" {
+  subnet_id      = aws_subnet.private-us-east-1c.id
   route_table_id = aws_route_table.private.id
 }
 
 
 #public
 
-resource "aws_route_table_association" "public-eu-west-1a" {
-  subnet_id      = aws_subnet.public-eu-west-1a.id
+resource "aws_route_table_association" "public-us-east-1a" {
+  subnet_id      = aws_subnet.public-us-east-1a.id
   route_table_id = aws_route_table.public.id
 }
 
-resource "aws_route_table_association" "public-eu-west-1b" {
-  subnet_id      = aws_subnet.public-eu-west-1b.id
+resource "aws_route_table_association" "public-us-east-1b" {
+  subnet_id      = aws_subnet.public-us-east-1b.id
   route_table_id = aws_route_table.public.id
 }
 
-resource "aws_route_table_association" "public-eu-west-1c" {
-  subnet_id      = aws_subnet.public-eu-west-1c.id
+resource "aws_route_table_association" "public-us-east-1c" {
+  subnet_id      = aws_subnet.public-us-east-1c.id
   route_table_id = aws_route_table.public.id
 }
 
@@ -295,7 +295,7 @@ resource "aws_route_table_association" "public-eu-west-1c" {
 
 resource "aws_launch_template" "app1_LT" {
   name_prefix   = "app1_LT"
-  image_id      = "ami-06ed60ed1369448bd"
+  image_id      = "ami-05576a079321f21f8"
   instance_type = "t2.micro"
 
   key_name = "MyLinuxBox"
@@ -353,8 +353,8 @@ resource "aws_launch_template" "app1_LT" {
     tags = {
       Name    = "app1_LT"
       Service = "application1"
-      Owner   = "Chewbacca"
-      Planet  = "Mustafar"
+      Owner   = "Magnetic"
+      Planet  = "Earf"
     }
   }
 
