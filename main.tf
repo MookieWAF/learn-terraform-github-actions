@@ -78,8 +78,8 @@ resource "aws_security_group" "app1-sg01-servers" {
   tags = {
     Name    = "app1-sg01-servers"
     Service = "application1"
-    Owner   = "Luke"
-    Planet  = "Musafar"
+    Owner   = "Prince"
+    Planet  = "The Earf"
   }
 
 }
@@ -96,8 +96,8 @@ resource "aws_subnet" "public-us-east-1a" {
   tags = {
     Name    = "public-us-east-1a"
     Service = "application1"
-    Owner   = "Luke"
-    Planet  = "Musafar"
+    Owner   = "Prince"
+    Planet  = "The Earf"
   }
 }
 
@@ -110,8 +110,8 @@ resource "aws_subnet" "public-us-east-1b" {
   tags = {
     Name    = "public-us-east-1b"
     Service = "application1"
-    Owner   = "Luke"
-    Planet  = "Musafar"
+    Owner   = "Prince"
+    Planet  = "The Earf"
   }
 }
 
@@ -125,8 +125,8 @@ resource "aws_subnet" "public-us-east-1c" {
   tags = {
     Name    = "public-us-east-1c"
     Service = "application1"
-    Owner   = "Luke"
-    Planet  = "Musafar"
+    Owner   = "Prince"
+    Planet  = "The Earf"
   }
 }
 
@@ -139,8 +139,8 @@ resource "aws_subnet" "private-us-east-1a" {
   tags = {
     Name    = "private-us-east-1a"
     Service = "application1"
-    Owner   = "Luke"
-    Planet  = "Musafar"
+    Owner   = "Prince"
+    Planet  = "The Earf"
   }
 }
 
@@ -152,8 +152,8 @@ resource "aws_subnet" "private-us-east-1b" {
   tags = {
     Name    = "private-us-east-1b"
     Service = "application1"
-    Owner   = "Luke"
-    Planet  = "Musafar"
+    Owner   = "Prince"
+    Planet  = "The Earf"
   }
 }
 
@@ -166,8 +166,8 @@ resource "aws_subnet" "private-us-east-1c" {
   tags = {
     Name    = "private-us-east-1c"
     Service = "application1"
-    Owner   = "Luke"
-    Planet  = "Musafar"
+    Owner   = "Prince"
+    Planet  = "The Earf"
   }
 }
 
@@ -177,8 +177,8 @@ resource "aws_internet_gateway" "igw" {
   tags = {
     Name    = "app1_IG"
     Service = "application1"
-    Owner   = "Luke"
-    Planet  = "Musafar"
+    Owner   = "Prince"
+    Planet  = "The Earf"
   }
 }
 
