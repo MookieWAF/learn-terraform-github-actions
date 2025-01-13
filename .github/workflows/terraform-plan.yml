@@ -3,8 +3,13 @@ name: "Terraform Plan"
 on:
   pull_request:
 env:
+update-tfc-org
+  TF_CLOUD_ORGANIZATION: "KTMachine-Rio"
+  TF_API_TOKEN: "${{ secrets.TF_API_TOKEN }}"
+
   TF_CLOUD_ORGANIZATION: "FlemingFriday"
   TF_API_TOKEN: "${{ secrets.TF_API_TOKEN2 }}"
+main
   TF_WORKSPACE: "learn-terraform-github-actions"
   CONFIG_DIRECTORY: "./"
 jobs:

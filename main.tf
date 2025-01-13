@@ -11,7 +11,11 @@ provider "aws" {
 terraform {
 
   cloud {
+ update-tfc-org
+    organization = "KTMachine-Rio"
+
     organization = "FlemingFriday"
+main
 
     workspaces {
       name = "learn-terraform-github-actions"
