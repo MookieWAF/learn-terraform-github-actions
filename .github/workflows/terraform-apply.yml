@@ -5,9 +5,9 @@ on:
     branches:
       - main
 
-env:
-  TF_CLOUD_ORGANIZATION: "FlemingFriday"
-  TF_API_TOKEN: "${{ secrets.TF_API_TOKEN2 }}"
+
+  TF_CLOUD_ORGANIZATION: "Class6_01"
+  TF_API_TOKEN: "${{ secrets.TF_API_TOKEN }}
   TF_WORKSPACE: "learn-terraform-github-actions"
   CONFIG_DIRECTORY: "./"
 
@@ -41,4 +41,4 @@ jobs:
         id: apply
         with:
           run: ${{ steps.apply-run.outputs.run_id }}
-          comment: "Apply Run from GitHub Actions CI ${{ github.sha }}
+          comment: "Apply Run from GitHub Actions CI ${{ github.sha }} "
