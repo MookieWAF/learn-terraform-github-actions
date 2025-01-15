@@ -3,9 +3,9 @@ name: "Terraform Plan"
 on:
   pull_request:
 env:
-  TF_CLOUD_ORGANIZATION: "FlemingFriday"
-  TF_API_TOKEN: "${{ secrets.TF_API_TOKEN2 }}"
-  TF_WORKSPACE: "learn-terraform-github-actions"
+  TF_CLOUD_ORGANIZATION: "2025-01-11-sultansaturday"
+  TF_API_TOKEN: "${{ secrets.TF_API_TOKEN }}"
+  TF_WORKSPACE: "2025-01-14-tfe-api-workflow"
   CONFIG_DIRECTORY: "./"
 jobs:
   terraform:
