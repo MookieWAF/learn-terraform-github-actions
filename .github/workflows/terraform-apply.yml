@@ -6,9 +6,9 @@ on:
       - main
 
 env:
-  TF_CLOUD_ORGANIZATION: "FlemingFriday"
+  TF_CLOUD_ORGANIZATION: "MannyTest967"
   TF_API_TOKEN: "${{ secrets.TF_API_TOKEN2 }}"
-  TF_WORKSPACE: "learn-terraform-github-actions"
+  TF_WORKSPACE: "NewYork"
   CONFIG_DIRECTORY: "./"
 
 jobs:
