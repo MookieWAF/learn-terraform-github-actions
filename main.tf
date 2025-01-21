@@ -1,13 +1,11 @@
 # Copyright (c) HashiCorp, Inc.
 # SPDX-License-Identifier: MPL-2.0
 
-
-
-
 provider "aws" {
-  region = "us-east-1"
+  region = "us-westeast-2"
+  access_key = var.AWS_ACCESS_KEY
+  secret_key = var.AWS_SECRET_KEY
 }
-
 terraform {
 
   cloud {
