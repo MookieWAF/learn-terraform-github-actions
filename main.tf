@@ -184,7 +184,8 @@ resource "aws_internet_gateway" "igw" {
 
 
 resource "aws_eip" "nat" {
-  vpc = true
+  
+  # The VPC argument (vpc = "true" )is not recieved in the current vers of AWS proivder and should be removed to simplify the configuration
 
   tags = {
     Name = "nat"
