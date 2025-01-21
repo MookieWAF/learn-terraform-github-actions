@@ -11,10 +11,10 @@ provider "aws" {
 terraform {
 
   cloud {
-    organization = "FlemingFriday"
+    organization = "armtue"
 
     workspaces {
-      name = "learn-terraform-github-actions"
+      name = "armtue"
     }
   }
 
@@ -298,7 +298,7 @@ resource "aws_launch_template" "app1_LT" {
   image_id      = "ami-06ed60ed1369448bd"
   instance_type = "t2.micro"
 
-  key_name = "MyLinuxBox"
+  # key_name = "MyLinuxBox"
 
   vpc_security_group_ids = [aws_security_group.app1-sg01-servers.id]
 
