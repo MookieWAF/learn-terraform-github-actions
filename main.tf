@@ -364,6 +364,5 @@ resource "aws_launch_template" "app1_LT" {
   }
 }
 
-output "web-address" {
-  value = "${aws_instance.web.public_dns}:8080"
-}
+
+
