@@ -1,13 +1,11 @@
 # Copyright (c) HashiCorp, Inc.
 # SPDX-License-Identifier: MPL-2.0
 
-
-
-
 provider "aws" {
-  region = "us-east-1"
+  region = "us-westeast-2"
+  access_key = var.AWS_ACCESS_KEY
+  secret_key = var.AWS_SECRET_KEY
 }
-
 terraform {
 
   cloud {
@@ -184,7 +182,8 @@ resource "aws_internet_gateway" "igw" {
 
 
 resource "aws_eip" "nat" {
-  vpc = true
+
+  # The VPC argument (vpc = "true" )is not recieved in the current vers of AWS proivder and should be removed to simplify the configuration
 
   tags = {
     Name = "nat"
@@ -363,6 +362,5 @@ resource "aws_launch_template" "app1_LT" {
   }
 }
 
-output "web-address" {
-  value = "${aws_instance.web.public_dns}:8080"
-}
+
+
