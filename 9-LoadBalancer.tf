@@ -3,13 +3,13 @@ resource "aws_lb" "app1_alb" {
   internal           = false
   load_balancer_type = "application"
   security_groups    = [aws_security_group.app1-LB01-SG01.id]
-  subnets            = [
+  subnets = [
     aws_subnet.public-us-east-1a.id,
     aws_subnet.public-us-east-1b.id,
     aws_subnet.public-us-east-1c.id
   ]
   enable_deletion_protection = false
-#Lots of death and suffering here, make sure it's false
+  #Lots of death and suffering here, make sure it's false
 
   tags = {
     Name    = "App1LoadBalancer"
