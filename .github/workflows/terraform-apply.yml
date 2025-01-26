@@ -41,4 +41,4 @@ jobs:
         id: apply
         with:
           run: ${{ steps.apply-run.outputs.run_id }}
-          comment: "Apply Run from GitHub Actions CI ${{ github.sha }}
+          comment: "Apply Run from GitHub Actions CI ${{ github.sha }} "
